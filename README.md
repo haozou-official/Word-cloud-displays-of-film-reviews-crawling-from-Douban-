@@ -59,10 +59,3 @@ cleaned_comments = ' '.join(filterdata)
 ```
 cleaned_comments=cleaned_comments.replace(' ','')
 ```
-<br>
-## Word Frequency statistics
-```
-segment = jieba.lcut(cleaned_comments)
-words_df=pd.DataFrame({'segment':segment})
-```
-![word
