@@ -59,3 +59,16 @@ cleaned_comments = ' '.join(filterdata)
 ```
 cleaned_comments=cleaned_comments.replace(' ','')
 ```
+# Word Frequency statistics
+```
+segment = jieba.lcut(cleaned_comments)
+words_df=pd.DataFrame({'segment':segment})
+```
+![words_df.head()](https://github.com/zouhao0418/Word-cloud-displays-of-film-reviews-crawling-from-Douban-/blob/master/words_df.head().png)
+```
+stopwords=pd.read_csv('/Users/zouhao/Desktop/
+chineseStopWords.txt',index_col=False,quoting=3,sep="\t",names=['stopword'], encoding='gb18030') 
+
+words_df=words_df[~words_df.segment.isin(stopwords.stopword)]
+words_df.head()
+```
