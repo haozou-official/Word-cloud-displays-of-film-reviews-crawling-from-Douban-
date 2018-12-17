@@ -72,3 +72,32 @@ chineseStopWords.txt',index_col=False,quoting=3,sep="\t",names=['stopword'], enc
 words_df=words_df[~words_df.segment.isin(stopwords.stopword)]
 words_df.head()
 ```
+![Word_Frequency_statistics](https://github.com/zouhao0418/Word-cloud-displays-of-film-reviews-crawling-from-Douban-/blob/master/Word_Frequency_statistics.png)
+## Word Cloud Display
+Note: Fonts may appear without settings, and the results of the word cloud are boxes<br>
+```
+wordcloud = WordCloud(width = 800, height = 800,
+                background_color ='white',
+                stopwords = stopwords,
+                min_font_size = 10).generate(comment_words)
+                      
+plt.figure(figsize = (20, 20), facecolor = None)
+plt.imshow(wordcloud)
+```
+![wordcloud_display1](https://github.com/zouhao0418/Word-cloud-displays-of-film-reviews-crawling-from-Douban-/blob/master/wordcloud_display1.png)
+Set Font MSYH.TTC (Microsoft Yahei)<br>
+```
+w = wordcloud.WordCloud(
+    width=1000, height=700,
+    background_color="white",
+    font_path="/Users/zouhao/Desktop/msyh.TTF" 
+)
+w.generate(txt)
+plt.figure(figsize = (20, 20), facecolor = None)
+plt.imshow(w)
+plt.tight_layout(pad = 0)
+plt.show()
+```
+![wordcloud_display2](https://github.com/zouhao0418/Word-cloud-displays-of-film-reviews-crawling-from-Douban-/blob/master/wordcloud_display2.png)
+Set up a background picture with mask pakage
+![wordcloud_display3](https://github.com/zouhao0418/Word-cloud-displays-of-film-reviews-crawling-from-Douban-/blob/master/wordcloud_display3.png)
